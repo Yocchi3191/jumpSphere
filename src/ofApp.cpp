@@ -23,10 +23,6 @@ void ofApp::setup() {
 
 	light.enable();  //lightを有効に  
 
-	gui.setup();
-	gui.add(btnCamera.setup("Front/Top"));
-	btnCamera.addListener(this, &ofApp::btnCameraPressed);
-
 	//テクスチャマッピングの設定
 	ofDisableArbTex();
 
@@ -129,10 +125,6 @@ void ofApp::draw() {
 	cam[camId].end();
 }
 
-void ofApp::exit() {
-	btnCamera.removeListener(this, &ofApp::btnCameraPressed);
-}
-
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key) {
 	ball.getKeyPush(key);
@@ -142,22 +134,6 @@ void ofApp::keyPressed(int key) {
 void ofApp::keyReleased(int key) {
 	ball.getKeyRelease(key);
 }
-
-//--------------------------------------------------------------
-void ofApp::mouseMoved(int x, int y) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseDragged(int x, int y, int button) {
-	ball.getMouseDrag(x, y, button);
-}
-
-//--------------------------------------------------------------
-void ofApp::mousePressed(int x, int y, int button) {
-
-}
-
 //--------------------------------------------------------------
 void ofApp::mouseReleased(int x, int y, int button) {
 	ball.getMouseRelease(x, y, button);
@@ -167,29 +143,4 @@ void ofApp::btnCameraPressed() {
 	//ボタンが押されたら設定値を反転して 
 	//カメラIDを切り替える  
 	camId = !camId;
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseEntered(int x, int y) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::mouseExited(int x, int y) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::windowResized(int w, int h) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::gotMessage(ofMessage msg) {
-
-}
-
-//--------------------------------------------------------------
-void ofApp::dragEvent(ofDragInfo dragInfo) {
-
 }
